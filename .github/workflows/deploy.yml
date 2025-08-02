@@ -2,7 +2,7 @@ name: Deploy to WordPress.org
 
 on:
   release:
-    types: [released]
+    types: [published]
 
 jobs:
   tag:
@@ -21,4 +21,5 @@ jobs:
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
         SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
         SLUG: hall-ai-analytics
+        BUILD_DIR: .
 
