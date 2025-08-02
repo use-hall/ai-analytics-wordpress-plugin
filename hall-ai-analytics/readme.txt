@@ -1,6 +1,6 @@
 === AI Analytics - Track AI Bots & Referrals ===
 Contributors: usehall
-Tags: AI, Agents, ChatGPT, Analytics, Attribution
+Tags: bot analytics, ai referrals, ai crawlers, ai optimization, ai search
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.0
