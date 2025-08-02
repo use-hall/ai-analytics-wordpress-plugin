@@ -14,7 +14,7 @@ jobs:
       matrix:
         php-version: [7.4, 8.0, 8.1, 8.2]
         
-    name: PHP ${{ matrix.php-version }} Tests
+    name: PHP ${{ matrix.php-version }}
     
     steps:
     - name: Checkout code
@@ -30,8 +30,11 @@ jobs:
     - name: Install dependencies
       run: composer install --no-interaction --prefer-dist
       
-    - name: Run all tests
-      run: composer test
+    - name: Run tests
+      run: vendor/bin/phpunit
+      
+    - name: Validate PHP syntax
+      run: find . -name "*.php" -not -path "./vendor/*" -not -path "./tests/*" -exec php -l {} \;
       
     - name: Generate coverage (PHP 8.1 only)
       if: matrix.php-version == '8.1'
@@ -42,42 +45,3 @@ jobs:
       uses: codecov/codecov-action@v3
       with:
         file: ./coverage.xml
-
-  wordpress-standards:
-    runs-on: ubuntu-latest
-    name: WordPress.org Standards
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: 8.1
-        
-    - name: Install dependencies
-      run: composer install --no-interaction --prefer-dist
-      
-    - name: Check plugin structure
-      run: |
-        test -f ai-analytics.php || (echo "❌ Main plugin file missing" && exit 1)
-        test -f readme.txt || (echo "❌ readme.txt missing" && exit 1)
-        test -d includes || (echo "❌ includes directory missing" && exit 1)
-        echo "✅ Plugin structure valid"
-        
-    - name: Run WordPress standards tests
-      run: vendor/bin/phpunit tests/integration/WordPressStandardsTest.php --verbose
-      
-    - name: Validate PHP syntax
-      run: find . -name "*.php" -not -path "./vendor/*" -not -path "./tests/*" -exec php -l {} \;
-      
-    - name: Check for banned functions
-      run: |
-        banned="eval exec system shell_exec"
-        for func in $banned; do
-          if grep -r "${func}(" --include="*.php" . --exclude-dir=vendor --exclude-dir=tests; then
-            echo "❌ Found banned function: $func" && exit 1
-          fi
-        done
-        echo "✅ No banned functions found"

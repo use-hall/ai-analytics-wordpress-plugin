@@ -24,10 +24,7 @@
     }
   },
   "scripts": {
-    "test": "phpunit",
-    "test:unit": "phpunit --testsuite=unit",
-    "test:integration": "phpunit --testsuite=integration",
-    "test:standards": "phpunit tests/integration/WordPressStandardsTest.php"
+    "test": "phpunit"
   },
   "config": {
     "optimize-autoloader": true,
