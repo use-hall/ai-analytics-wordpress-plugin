@@ -29,6 +29,15 @@ class WordPressHooksTest extends TestCase
         Functions\when('wp_unslash')->returnArg();
         Functions\when('esc_html__')->returnArg();
         Functions\when('add_settings_error')->justReturn(null);
+        
+        // Mock WordPress plugin functions
+        Functions\when('plugin_dir_path')->justReturn(__DIR__ . '/../../');
+        Functions\when('plugin_dir_url')->justReturn('http://example.com/wp-content/plugins/ai-analytics/');
+        Functions\when('plugin_basename')->justReturn('ai-analytics/ai-analytics.php');
+        Functions\when('register_activation_hook')->justReturn(null);
+        Functions\when('register_deactivation_hook')->justReturn(null);
+        Functions\when('add_action')->justReturn(null);
+        Functions\when('esc_js')->returnArg();
     }
 
     protected function tearDown(): void
