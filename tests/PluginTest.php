@@ -10,16 +10,16 @@ class PluginTest extends TestCase
 {
     private static function getPluginFiles()
     {
-        $files = ['ai-analytics.php'];
-        if (is_dir('includes')) {
-            $files = array_merge($files, glob('includes/*.php'));
+        $files = ['hall-ai-analytics/ai-analytics.php'];
+        if (is_dir('hall-ai-analytics/includes')) {
+            $files = array_merge($files, glob('hall-ai-analytics/includes/*.php'));
         }
         return $files;
     }
 
     private static function getPluginHeader($header)
     {
-        $content = file_get_contents('ai-analytics.php');
+        $content = file_get_contents('hall-ai-analytics/ai-analytics.php');
         if (preg_match("/{$header}:\s*([^\n\r]+)/", $content, $matches)) {
             return trim($matches[1]);
         }
@@ -28,9 +28,9 @@ class PluginTest extends TestCase
 
     public function test_plugin_structure()
     {
-        $this->assertFileExists('ai-analytics.php', 'main plugin file required');
-        $this->assertFileExists('readme.txt', 'readme.txt required for wordpress.org');
-        $this->assertDirectoryExists('includes', 'includes directory required');
+        $this->assertFileExists('hall-ai-analytics/ai-analytics.php', 'main plugin file required');
+        $this->assertFileExists('hall-ai-analytics/readme.txt', 'readme.txt required for wordpress.org');
+        $this->assertDirectoryExists('hall-ai-analytics/includes', 'includes directory required');
     }
 
     public function test_plugin_headers()
@@ -53,7 +53,7 @@ class PluginTest extends TestCase
     {
         $plugin_version = self::getPluginHeader('Version');
         
-        $readme_content = file_get_contents('readme.txt');
+        $readme_content = file_get_contents('hall-ai-analytics/readme.txt');
         preg_match('/Stable tag:\s*([^\s\n\r]+)/', $readme_content, $matches);
         $readme_version = trim($matches[1]);
         
@@ -83,7 +83,7 @@ class PluginTest extends TestCase
 
     public function test_readme_compliance()
     {
-        $content = file_get_contents('readme.txt');
+        $content = file_get_contents('hall-ai-analytics/readme.txt');
         
         $required_sections = [
             '=== AI Analytics - Track AI Bots & Referrals ===',

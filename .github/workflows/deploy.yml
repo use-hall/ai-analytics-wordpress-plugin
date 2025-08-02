@@ -21,5 +21,5 @@ jobs:
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
         SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
         SLUG: hall-ai-analytics
-        BUILD_DIR: .
+        BUILD_DIR: hall-ai-analytics
 

@@ -5,7 +5,7 @@ on:
     - main
     paths:
     - '.wordpress-org/**'
-    - 'readme.txt'
+    - 'hall-ai-analytics/readme.txt'
   workflow_dispatch:
 
 jobs:
@@ -22,4 +22,5 @@ jobs:
         SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
         SLUG: hall-ai-analytics
+        README_NAME: hall-ai-analytics/readme.txt
         IGNORE_OTHER_FILES: true

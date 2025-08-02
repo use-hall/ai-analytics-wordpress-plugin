@@ -34,7 +34,7 @@ jobs:
       run: vendor/bin/phpunit
       
     - name: Validate PHP syntax
-      run: find . -name "*.php" -not -path "./vendor/*" -not -path "./tests/*" -exec php -l {} \;
+      run: find hall-ai-analytics -name "*.php" -exec php -l {} \;
       
     - name: Generate coverage (PHP 8.1 only)
       if: matrix.php-version == '8.1'
