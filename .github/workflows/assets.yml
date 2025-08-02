@@ -6,6 +6,8 @@ on:
     paths:
     - '.wordpress-org/**'
     - 'readme.txt'
+  release:
+    types: [published]
 
 jobs:
   assets:
