@@ -8,7 +8,7 @@ Stable tag: 1.0.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Measure and understand how AI agents and assistants are accessing your WordPress site. Track referrals and clicks from conversational AI platforms like ChatGPT.
+Track AI agents and assistants accessing your WordPress site. Monitor referrals and clicks from ChatGPT and conversational AI platforms.
 
 == Description ==
 
@@ -16,16 +16,16 @@ AI Analytics enables you to measure AI assistant, AI agents, and AI crawler acti
 
 After setting up the plugin, you'll be able to understand:
 
-- How AI crawlers access your website to train and improve their foundational models like GPT-T or Claude Sonnet
-- How AI assistants and AI agents are using content from your website to display to users in response to questions asked on platforms like ChatGPT
-- How search crawlers are browsing pages on your website to build and improve search engine indexes for both AI and traditional search
-- Which AI platforms users are clicking from and being referred to your website
+- **How AI crawlers access your website** to train and improve their foundational models like GPT-4 or Claude Sonnet
+- **How AI assistants and AI agents are using content from your website** to display to users in response to questions asked on platforms like ChatGPT
+- **How search crawlers are browsing pages on your website** to build and improve search engine indexes for both AI and traditional search
+- **Which AI platforms users are clicking from** and being referred to your website
 
 [Hall](https://usehall.com/ai-agent-analytics/?utm_source=wordpress_plugin_directory) provides analytics dashboards that display data such as:
 
-- Pages viewed by bot and crawler type, such as AI assistants, AI training, or search crawlers
-- Analysis of the companies most frequently accessing your website, such as OpenAI, Anthropic, or Google
-- The most popular pages on your site that are visited by AI
+- **Pages viewed by bot and crawler type**, such as AI assistants, AI training, or search crawlers
+- **Analysis of the AI companies accessing your website**, such as OpenAI, Anthropic, or Google
+- **The most popular pages on your site** that are visited by AI
 
 This plugin connects your WordPress website to [Hall](https://usehall.com/ai-agent-analytics/?utm_source=wordpress_plugin_directory), and integrates to forward requests from your WordPress website to the [Hall Analytics API](https://docs.usehall.com/api-reference/visit).
 
@@ -38,7 +38,7 @@ This plugin connects your WordPress website to [Hall](https://usehall.com/ai-age
 3. Search for **AI Analytics**
 4. Click **Install Now** and then **Activate**
 
-## Manual download
+### Manual download
 
 1. Download the plugin zip file
 2. Log in to your WordPress admin panel
@@ -46,7 +46,7 @@ This plugin connects your WordPress website to [Hall](https://usehall.com/ai-age
 4. Choose the downloaded zip file and click **Install Now**
 5. Click **Activate Plugin**
 
-## Get your API key
+### Get your API key
 
 1. [Sign up for a free account](https://usehall.com/?utm_source=wordpress_plugin_directory) with Hall
 2. Navigate to your domain or click **New domain** in the navigation sidebar and add your domain
