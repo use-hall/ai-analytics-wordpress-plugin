@@ -116,34 +116,23 @@ class AnalyticsTest extends TestCase
         unset($_SERVER['HTTP_HOST'], $_SERVER['HTTP_USER_AGENT'], $_SERVER['HTTP_REFERER']);
     }
 
-    public function test_ai_analytics_get_request_header_value_with_http_prefix()
+    public function test_ai_analytics_get_request_header_value()
     {
-        $_SERVER['HTTP_USER_AGENT'] = 'Test Agent';
-        
         require_once __DIR__ . '/../../includes/analytics.php';
         
+        // Test with HTTP prefix
+        $_SERVER['HTTP_USER_AGENT'] = 'Test Agent';
         $value = ai_analytics_get_request_header_value('User-Agent');
         $this->assertEquals('Test Agent', $value);
-        
         unset($_SERVER['HTTP_USER_AGENT']);
-    }
-
-    public function test_ai_analytics_get_request_header_value_without_prefix()
-    {
+        
+        // Test without prefix
         $_SERVER['HOST'] = 'example.com';
-        
-        require_once __DIR__ . '/../../includes/analytics.php';
-        
         $value = ai_analytics_get_request_header_value('Host');
         $this->assertEquals('example.com', $value);
-        
         unset($_SERVER['HOST']);
-    }
-
-    public function test_ai_analytics_get_request_header_value_returns_null_when_missing()
-    {
-        require_once __DIR__ . '/../../includes/analytics.php';
         
+        // Test missing header
         $value = ai_analytics_get_request_header_value('NonExistent');
         $this->assertNull($value);
     }
