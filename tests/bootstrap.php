@@ -20,6 +20,15 @@ if (!defined('WP_DEBUG')) {
     define('WP_DEBUG', true);
 }
 
+// Mock common WordPress functions that are always needed
+\Brain\Monkey\Functions\when('plugin_dir_path')->justReturn(__DIR__ . '/../');
+\Brain\Monkey\Functions\when('plugin_dir_url')->justReturn('http://example.com/wp-content/plugins/ai-analytics/');
+\Brain\Monkey\Functions\when('plugin_basename')->justReturn('ai-analytics/ai-analytics.php');
+\Brain\Monkey\Functions\when('esc_js')->returnArg();
+\Brain\Monkey\Functions\when('esc_html')->returnArg();
+\Brain\Monkey\Functions\when('esc_attr')->returnArg();
+\Brain\Monkey\Functions\when('esc_url')->returnArg();
+
 // Load plugin constants
 require_once __DIR__ . '/../includes/constants.php';
 
