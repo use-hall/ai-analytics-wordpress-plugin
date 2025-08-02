@@ -65,6 +65,7 @@ Data from this plugin will start to appear in your domain dashboard within your 
 This plugin connects to the Hall Analytics API endpoint located at `https://analytics.usehall.com/visit` to provide AI analytics insights for your website.
 
 The plugin works by forwarding each request to your WordPress site to the API endpoint, including:
+
 - Page URL and request path
 - HTTP request method (GET, POST, etc.)
 - Basic request headers (Host, User-Agent, Referer)
