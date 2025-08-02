@@ -2,7 +2,7 @@ name: Deploy to WordPress.org
 
 on:
   release:
-    types: [published]
+    types: [released]
 
 jobs:
   tag:
@@ -11,8 +11,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      with:
-        path: '.'
 
     - name: WordPress Plugin Deploy
       id: deploy
