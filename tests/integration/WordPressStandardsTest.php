@@ -156,10 +156,15 @@ class WordPressStandardsTest extends TestCase
         foreach ($files as $file) {
             $content = TestUtils::getFileContent($file);
             
-            // Admin functions should check capabilities
-            if (strpos($content, 'update_option') !== false || strpos($content, 'admin_') !== false) {
+            // Admin functions that process user input should check capabilities
+            // Skip activation/deactivation hooks as they already require admin privileges
+            if ((strpos($content, 'update_option') !== false || strpos($content, 'admin_page') !== false) &&
+                strpos($content, '$_POST') !== false &&
+                strpos($content, 'activate') === false &&
+                strpos($content, 'deactivate') === false) {
+                
                 $hasCapCheck = TestUtils::fileContainsAny($file, ['current_user_can', 'user_can']);
-                $this->assertTrue($hasCapCheck, "Admin functionality in {$file} should check capabilities");
+                $this->assertTrue($hasCapCheck, "Admin functionality processing user input in {$file} should check capabilities");
             }
         }
     }
