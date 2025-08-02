@@ -1,0 +1,50 @@
+# Files outside plugin directory
+/ai-analytics-wordpress-plugin.php
+/readme.txt
+/package.json
+
+# Directories
+.git/
+.github/
+node_modules/
+.vscode/
+.idea/
+
+# Files
+.gitignore
+.distignore
+package.json
+package-lock.json
+composer.json
+composer.lock
+phpunit.xml
+.phpcs.xml
+webpack.config.js
+gulpfile.js
+Gruntfile.js
+.babelrc
+.eslintrc
+.eslintrc.js
+.eslintrc.json
+tsconfig.json
+.stylelintrc
+.stylelintrc.json
+
+# Development files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Source files (if using build process)
+src/
+assets/src/
+scss/
+less/
+ts/
+jsx/
+
+# Documentation
+README.md
+CHANGELOG.md
+CONTRIBUTING.md
