@@ -36,7 +36,7 @@ class PluginTest extends TestCase
     public function test_plugin_headers()
     {
         $required_headers = [
-            'Plugin Name' => 'AI Analytics',
+            'Plugin Name' => 'AI Analytics - Track AI Bots & Referrals',
             'Version' => '1.0.0',
             'Text Domain' => 'hall-ai-analytics',
             'License' => 'GPLv3'
@@ -86,7 +86,7 @@ class PluginTest extends TestCase
         $content = file_get_contents('readme.txt');
         
         $required_sections = [
-            '=== AI Analytics ===',
+            '=== AI Analytics - Track AI Bots & Referrals ===',
             '== Description ==',
             '== Installation ==',
             '== Changelog =='

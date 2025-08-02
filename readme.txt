@@ -1,4 +1,4 @@
-=== AI Analytics ===
+=== AI Analytics - Track AI Bots & Referrals ===
 Contributors: usehall
 Tags: AI, Agents, ChatGPT, Analytics, Attribution
 Requires at least: 5.0
