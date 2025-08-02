@@ -1,7 +1,5 @@
-# Files outside plugin directory
-/ai-analytics-wordpress-plugin.php
-/readme.txt
-/package.json
+# Development files
+package.json
 
 # Directories
 .git/
