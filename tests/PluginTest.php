@@ -36,7 +36,7 @@ class PluginTest extends TestCase
     public function test_plugin_headers()
     {
         $required_headers = [
-            'Plugin Name' => 'AI Analytics - Track AI Bots & Referrals',
+            'Plugin Name' => 'AI Analytics',
             'Version' => '1.0.0',
             'Text Domain' => 'hall-ai-analytics',
             'License' => 'GPLv3'
