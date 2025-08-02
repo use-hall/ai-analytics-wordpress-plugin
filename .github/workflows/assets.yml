@@ -16,6 +16,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@master
     
+    - name: Copy readme to root for asset update
+      run: cp hall-ai-analytics/readme.txt readme.txt
+    
     - name: WordPress.org plugin asset/readme update
       uses: 10up/action-wordpress-plugin-asset-update@stable
       env:
