@@ -1,0 +1,114 @@
+name: Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        php-version: [7.4, 8.0, 8.1, 8.2]
+        
+    name: PHP ${{ matrix.php-version }} Tests
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
+        extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+        coverage: xdebug
+        
+    - name: Cache Composer dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.composer/cache/files
+        key: dependencies-php-${{ matrix.php-version }}-composer-${{ hashFiles('composer.json') }}
+        restore-keys: |
+          dependencies-php-${{ matrix.php-version }}-composer-
+          
+    - name: Install Composer dependencies
+      run: composer install --prefer-dist --no-interaction --no-progress
+      
+    - name: Run unit tests
+      run: composer run-script test:unit
+      
+    - name: Run integration tests  
+      run: composer run-script test:integration
+      
+    - name: Generate coverage report
+      if: matrix.php-version == '8.1'
+      run: vendor/bin/phpunit --coverage-clover=coverage.xml
+      
+    - name: Upload coverage to Codecov
+      if: matrix.php-version == '8.1'
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+
+  code-quality:
+    runs-on: ubuntu-latest
+    name: Code Quality
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 8.1
+        extensions: dom, curl, libxml, mbstring, zip
+        
+    - name: Install Composer dependencies
+      run: composer install --prefer-dist --no-interaction --no-progress
+      
+    - name: Check PHP syntax
+      run: find . -name "*.php" -not -path "./vendor/*" -not -path "./tests/*" -exec php -l {} \;
+      
+    - name: Validate composer.json
+      run: composer validate --strict
+
+  plugin-compatibility:
+    runs-on: ubuntu-latest
+    name: WordPress Plugin Compatibility
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 7.4
+        
+    - name: Install Plugin Check
+      run: |
+        curl -O https://downloads.wordpress.org/plugin/plugin-check.latest-stable.zip
+        unzip plugin-check.latest-stable.zip
+        
+    - name: Check plugin structure
+      run: |
+        # Basic plugin structure validation
+        test -f ai-analytics.php || (echo "Main plugin file missing" && exit 1)
+        test -f readme.txt || (echo "readme.txt missing" && exit 1)
+        test -d includes || (echo "includes directory missing" && exit 1)
+        echo "Plugin structure validation passed"
+        
+    - name: Validate readme.txt
+      run: |
+        # Check readme.txt has required sections
+        grep -q "=== AI Analytics ===" readme.txt || (echo "Plugin name missing in readme.txt" && exit 1)
+        grep -q "== Description ==" readme.txt || (echo "Description section missing" && exit 1)
+        grep -q "== Installation ==" readme.txt || (echo "Installation section missing" && exit 1)
+        echo "readme.txt validation passed"

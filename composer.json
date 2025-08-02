@@ -1,0 +1,35 @@
+{
+  "name": "hall/ai-analytics-wordpress-plugin",
+  "description": "AI Analytics WordPress Plugin - Track AI agent visits and referral traffic",
+  "type": "wordpress-plugin",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Hall",
+      "homepage": "https://usehall.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.5|^8.0|^9.0",
+    "wp-phpunit/wp-phpunit": "^6.0",
+    "mockery/mockery": "^1.4",
+    "brain/monkey": "^2.6"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "AIAnalytics\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "test:unit": "phpunit --testsuite=unit",
+    "test:integration": "phpunit --testsuite=integration"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  }
+}

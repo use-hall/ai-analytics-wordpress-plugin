@@ -2,6 +2,10 @@
 package.json
 README.md
 LICENSE
+composer.json
+composer.lock
+phpunit.xml
+phpunit.xml.dist
 
 # Directories
 .git/
@@ -9,6 +13,8 @@ LICENSE
 node_modules/
 .vscode/
 .idea/
+tests/
+vendor/
 
 # Files
 .gitignore

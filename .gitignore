@@ -1,0 +1,31 @@
+# Dependencies
+/vendor/
+/node_modules/
+composer.lock
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test results
+/coverage/
+coverage.xml
+phpunit.xml.dist
+.phpunit.result.cache
+
+# Logs
+*.log
+
+# Build artifacts
+*.zip
+/build/
+
+# Local development
+.env
+.env.local
