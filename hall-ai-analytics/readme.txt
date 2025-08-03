@@ -1,6 +1,6 @@
 === AI Analytics - Track AI Bots & Referrals ===
 Contributors: usehall
-Tags: answer engine optimization, ai optimization, ai search, cralwers, bots
+Tags: answer engine optimization, ai optimization, ai search, bot analytics, ai referrals
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.0
