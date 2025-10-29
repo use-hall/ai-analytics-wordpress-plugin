@@ -37,7 +37,6 @@ class PluginTest extends TestCase
     {
         $required_headers = [
             'Plugin Name' => 'AI Analytics',
-            'Version' => '1.0.0',
             'Text Domain' => 'hall-ai-analytics',
             'License' => 'GPLv3'
         ];
@@ -47,6 +46,11 @@ class PluginTest extends TestCase
             $this->assertNotNull($actual, "{$header} header required");
             $this->assertEquals($expected, $actual, "{$header} should be '{$expected}'");
         }
+
+        // Check that Version header exists without hardcoding the value
+        $version = self::getPluginHeader('Version');
+        $this->assertNotNull($version, "Version header required");
+        $this->assertNotEmpty($version, "Version header should not be empty");
     }
 
     public function test_version_consistency()
