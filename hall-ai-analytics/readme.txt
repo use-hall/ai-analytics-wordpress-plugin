@@ -4,7 +4,7 @@ Tags: answer engine optimization, ai optimization, ai search, bot analytics, ai 
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -97,3 +97,6 @@ No, the plugin is designed to be lightweight, unintrusive, and sends data asynch
 
 = 1.0.0 =
 * Initial release
+
+= 1.0.1 =
+* Minor icon design fixes
