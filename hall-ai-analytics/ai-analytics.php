@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('AI_ANALYTICS_VERSION', '1.0.0');
+define('AI_ANALYTICS_VERSION', '1.0.1');
 define('AI_ANALYTICS_PLUGIN_FILE', __FILE__);
 define('AI_ANALYTICS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('AI_ANALYTICS_PLUGIN_URL', plugin_dir_url(__FILE__));

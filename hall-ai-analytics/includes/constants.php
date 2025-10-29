@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 
 // General
 
-define('AI_ANALYTICS_WORDPRESS_PLUGIN_VERSION', '1.0.0');
+define('AI_ANALYTICS_WORDPRESS_PLUGIN_VERSION', '1.0.1');
 
 // Settings groups
 
