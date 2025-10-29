@@ -215,6 +215,11 @@ function ai_analytics_admin_enqueue_scripts($hook) {
             align-items: center;
             margin: 0;
             gap: 8px;
+            line-height: 1;
+        }
+        .password-input-container .button .dashicons {
+            line-height: inherit;
+            vertical-align: middle;
         }
         .checkbox-input-container {
             display: inline-flex;

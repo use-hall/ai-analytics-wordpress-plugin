@@ -16,7 +16,7 @@ AI Analytics enables you to measure AI assistant, AI agents, and AI crawler acti
 
 After setting up the plugin, you'll be able to understand:
 
-- **How AI crawlers access your website** to train and improve their foundational models like GPT-4 or Claude Sonnet
+- **How AI crawlers access your website** to train and improve their foundational models like GPT-5 or Claude Sonnet
 - **How AI assistants and AI agents are using content from your website** to display to users in response to questions asked on platforms like ChatGPT
 - **How search crawlers are browsing pages on your website** to build and improve search engine indexes for both AI and traditional search
 - **Which AI platforms users are clicking from** and being referred to your website
@@ -49,7 +49,7 @@ This plugin connects your WordPress website to [Hall](https://usehall.com/ai-age
 ### Get your API key
 
 1. [Sign up for a free account](https://usehall.com/?utm_source=wordpress_plugin_directory) with Hall
-2. Navigate to your domain or click **New domain** in the navigation sidebar and add your domain
+2. Click **AI site analytics** in the navigation sidebar and add your domain
 3. Then click **Domain settings**, and follow the set up instructions to create an API key for your domain
 4. Copy your API key
 5. Navigate to **Settings**, then **AI Analytics** in your WordPress site
